@@ -16,7 +16,7 @@ const initialState = {
   };
 
 const todosReducer = (state = initialState, action) => {
-    
+    debugger 
     const newState = {}
 
     switch (action.type) {
@@ -26,10 +26,12 @@ const todosReducer = (state = initialState, action) => {
             })
             return newState
         case RECEIVE_TODO:
-            
-        
+            debugger
+            const newTodo = { [action.todo.id]: action.todo}
+            let subState = Object.assign(newState, state, newTodo)
+            debugger
+            return Object.assign(newState, state, newTodo)
         default: 
-        
             return state
     }
 }
